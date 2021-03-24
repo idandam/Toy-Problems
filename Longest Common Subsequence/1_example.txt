@@ -1,0 +1,12 @@
+Assume the subsequences are given as arrays
+A={1,2,3,4}
+B={2,1,4,5}
+length = 2 because A and B share the LCS {2,4} 
+
+A={8,7,6,5,1,4}
+B={8,6,1}
+length = 3 because A and B share the LCS {8,6,1}
+
+A={2,3,4}
+B={1,5,6}
+length = 0 becuase A and B don't have a common subsequence

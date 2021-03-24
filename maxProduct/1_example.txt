@@ -1,0 +1,11 @@
+A={4,1,8,2}
+res:4,8,2
+
+A={-8, -9, 7, 5, 2}
+res= -8, -9, 7
+
+A={-6, -8, -2, -9}
+res = -2, -8, -6
+
+A={-1, 2, 0, 8}
+res = 0, 2, 8 (can be any three integers that zero is one of them)

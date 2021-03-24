@@ -1,0 +1,25 @@
+My approach was:
+
+see what is the result for:
+
+1.A[n] such that all integers in A are positive or all integers in A are negative.
+	in this case it's clear that the result will be the three largest elements of A
+
+2.A[n] such that A contains at least one positive integers and at least two negative integers.
+	in this case:
+		if A contains at least two negative values s1,s2 then there's a possibility that
+		the product of those two integers is largest than the product of the
+		second and third largest elements of A , say, l2 , l3.
+		therefore l3*l2*l1 <  s1*s2*l1  (l1 is the largest positive integer of A)
+
+Those two cases cover all possibilities for the maximum product.
+
+Explaining line 46 in the main.c file:
+if all integers are nonnegative or nonpositive /*then the result are the three largest integers of A*/
+	or (the third largest integer is positive and the we have met the condition starting at line 10 in this file)
+		then the result is the three largest integers of A
+
+At any other case the result is the two smallest integers of A and the largest integer of A
+
+I checked if the third largest element of A is positive because if it's nonpositive than the product of the three largest
+integers of A is nonpositive, so the maximum product in this case is the two smallest integers of A and the largest integer of A.

@@ -1,0 +1,8 @@
+the first nested loop we accumulate elements to the right , starting from the right border (named "end").
+The sceond nested loop we accumulate elements the the right, starting from the left border (named "start").
+At the worst case, each element we added at iteration i, we need to subtract at iteration i+1.
+(*) We can conclude that we visit an element two times at the wrost case.    
+Let n be the size of the sequence.
+each nested loop at the worst case runs at O(n) time.
+From here and (*) we get at the wrost case time of O(2n)= O(n)
+

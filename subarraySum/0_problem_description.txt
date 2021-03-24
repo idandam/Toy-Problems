@@ -1,0 +1,10 @@
+Write an algorithm that gets as input:
+
+1.an unsorted array of non-negative integers - A
+2.a non-negative integer - s
+
+and return as output two indeces i and j that represents the start and end of 
+a continous subarray of A which adds to s.
+
+if there's no such subarray then the algorithm returns NIL 
+

@@ -1,0 +1,58 @@
+Author:Idan Damri
+
+We can solve this by first knowing what we should maintain,
+assuming we're currently located at some index (i,j):
+(1) To which direction should we go ?
+(2) How many steps can we move in that direction ?
+(3) How and when should we change direction ?
+
+I'll now answer to those questions:
+(1) We can maintain four constants that represents four directions, starting from RIGHT and moving 90 degrees clockwise.
+When we know the direction, it's easy to move at that direction.
+(2) We'll keep 4 variables for borders. Each direction will have a suitable boundary.
+(3) If RIGHT=0, DOWN=1, LEFT=3, UP=4 and we're currently at some direction D,
+then next direction = (D+1) mod (NUMBER_OF_DIRECTIONS).
+We'll increment direction value according to round robin method.
+
+I'll add some more details:
+If we're moving to the right:
+  then we'll always start from the left border.
+  after we finished, the current upper limit has incremented by one 
+  for example: if I'm at entry (0,0) and I finished moving to the right and print all the elements then the upper limit will become 1
+  since row 1 (corresponding index is 0) is no longer available.
+If we're moving down, then we'll always start from the upper border
+If we're moving to the left, then we'll wlways start from the right border
+If we're moving up, then we'll walys start from the bottom border.
+
+the borders will be indeces that can be reached within the matrix.
+so actually,at any moment, if we want to start printing some row or some column, we need to know
+until what row do I have access or until what column do I have access ?.
+
+Conditions to stop printing the matrix:
+If the left and right borders or  the upper and lower borders got overlapped and then skipped each other
+then we finished printing the array in spiral form, so the procedure will look something like this :
+
+initialize : direction= RIGHT, left border = upper border = 0 , right border = #columns-1 , bottom = #rows-1 
+while((left border didn't skip right border)  and  (upper border didn't skip bottom border)) {
+  check direction:
+    case direction=RIGHT:
+        while moving to the right, print what you can according to the borders
+        update the upper border 
+    case direction=DOWN:
+        ...
+    .
+    .
+    .
+    case direction=UP:
+      ...
+    stop checking direction
+  change direction 90 degrees clockwise
+  continue loop
+}
+
+I'll not show a formal correctness for this algorithm.
+However, you can look at it this way:
+The matrix is a world of robots, and the world contains only one robot starting from index (0,0).
+The robot always move at some direction and prints what he sees.
+If the robot encounter a wall (or the corrosponding border) then he change his direction 90 degrees clockwise.
+How we maintain our borders in addition to how the robot can move is what making the matrix to be printed in a spiral form

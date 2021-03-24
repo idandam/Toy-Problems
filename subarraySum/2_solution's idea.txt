@@ -1,0 +1,33 @@
+Let A={a_1, a_2, ..., a_n} be a sequence of non-negative integers.
+Let s be a non-negative integer.
+
+if s=0 than the only possibility to have a subarray that add to s is if 
+we have some a_i in A such that a_i = 0
+
+so we can just iterate A and look for an element that equals to zero.
+
+else , we assume that s is greater than zero.
+
+Because we're dealing with continuous elements, we may need to know our borders,
+where the subsequence start and where it ends.
+The most natural place to start accumulate elements in this case is from the first element.
+So the procedure will look something like this(assuming we initialize some variables that later will be discuusded)
+	start from the first element in A.
+	accumulate elements in A to the right and add them, do this until the result you got is not less than s.
+	at any point, if you add elements and the result you get is greater than s 
+	then you need to subtract from that result the previous elements you added in a natural order,that means,
+	from the first element to the left of the elements you've accumulated.
+	
+	if the result is equal to s then we're done
+	the left border and right border of the accumulated elements is the result.
+	
+	if we reached to the last element of the sequence and sum < s, you should notice that there's no need to continue 
+	since from here we can only subtract elements and this will not benefit us in that case because sum will get smaller at each 		subtraction.
+
+
+
+
+	
+
+
+

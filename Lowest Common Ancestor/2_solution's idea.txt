@@ -1,0 +1,21 @@
+Author: Idan Damri
+
+Let G=(V,E) a binary tree.
+
+(*)In a tree data structure,  there's only one path from any two nodes, therefore we can 
+start searching for the first key.
+while we traverse the tree, we record the path we take in a LIFO(last in first out) order, using a stack data structure.
+Author: Idan Damri.
+
+If we found a node with the first key than we found our first path
+
+We do the same for the second key and get our second path.
+Because (*), it's sufficient now to just traverse the two paths simultaneously until 
+they reach a common ancester (in this case the lowest common ancestor)
+
+Since we will start recording a path from the root of G(we first push the root into the stack), it's natural to look for the keys 
+in a preorder traversal.
+
+I will divide the problem into two pieces:
+	1. we will find both keys and record two paths in a LIFO order for each one.
+	2. assuming we found both keys, we will traverse upwards the two paths simulatenously until we reach a common ancestor
